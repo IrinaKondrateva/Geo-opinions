@@ -19,6 +19,7 @@
     "curly": "error",
     "guard-for-in": "error",
     "no-caller": "error",
+    "no-console": "off",
     "no-else-return": "error",
     "no-empty-function": "error",
     "no-new-wrappers": "error",

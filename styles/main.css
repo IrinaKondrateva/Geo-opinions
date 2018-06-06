@@ -1,0 +1,205 @@
+@font-face {
+  font-family: 'Fira Sans';
+  src: url("../fonts/firasans-light.woff2") format("woff2"), url("./fonts/firasans-light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Fira Sans';
+  src: url("../fonts/firasans-medium.woff2") format("woff2"), url("../fonts/firasans-medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Fira Sans';
+  src: url("../fonts/firasans-regular.woff2") format("woff2"), url("./fonts/firasans-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal; }
+
+*, *::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html {
+  height: 100%;
+  width: 100%; }
+
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 12px;
+  position: relative; }
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
+
+a {
+  text-decoration: none; }
+
+input, textarea {
+  outline: none; }
+
+#map {
+  width: 100%;
+  min-height: 100%; }
+
+.opinions {
+  position: absolute;
+  background-color: rgba(196, 196, 196, 0.4);
+  z-index: 50;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+.opinions__wrapper {
+  background-color: #fff;
+  width: 379px;
+  z-index: 100;
+  border-radius: 10px;
+  position: absolute; }
+
+.logo {
+  position: absolute;
+  bottom: 10px;
+  right: 10px; }
+
+.opinions__header {
+  height: 45px;
+  background-color: #ff8663;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 15px;
+  border-radius: 10px 10px 0 0; }
+
+.opinions__address-text {
+  color: #fff;
+  font-weight: 300; }
+
+.close__svg {
+  height: 14px;
+  width: 14px;
+  fill: #fff; }
+
+.opinions__address {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.fa-map-marker-alt {
+  color: #fff;
+  font-size: 10px;
+  padding-right: 5px; }
+
+.opinions__container {
+  padding: 0 15px; }
+
+.opinions__list {
+  border-bottom: 1px solid #f0f0f0;
+  padding-top: 15px;
+  height: 155px;
+  overflow: auto; }
+  .opinions__list::-webkit-scrollbar {
+    width: 3px; }
+  .opinions__list::-webkit-scrollbar-thumb {
+    width: 3px;
+    height: 80px;
+    background-color: #c4c4c4;
+    border-radius: 6px; }
+
+.opinions__item {
+  font-size: 16px;
+  font-weight: 400;
+  color: #4f4f4f; }
+  .opinions__item span:first-child {
+    padding-right: 10px;
+    font-weight: 500; }
+  .opinions__item span:nth-child(2) {
+    padding-right: 8px; }
+  .opinions__item-opintext {
+    padding-top: 10px;
+    padding-bottom: 28px;
+    font-size: 15px; }
+
+.new-opinion__title {
+  padding: 17px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ff8663; }
+
+.new-opinion__info-block {
+  width: 100%;
+  height: 36px;
+  border: 1px solid #c4c4c4;
+  border-radius: 18px;
+  padding: 0 15px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  font-weight: 300;
+  color: black; }
+  .new-opinion__info-block_textarea {
+    height: 133px;
+    padding-top: 12px;
+    margin-bottom: 0; }
+
+.ymaps-2-1-64-b-cluster-carousel__content {
+  position: relative; }
+
+.ballon {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #4f4f4f; }
+
+.ballon__header {
+  font-weight: 500;
+  padding-bottom: 15px; }
+
+.ballon-address {
+  padding-bottom: 10px; }
+
+.ballon__footer {
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  padding-bottom: 5px; }
+
+.ballon-address__link {
+  text-decoration: underline; }
+
+.new-opinion__add {
+  height: 60px;
+  text-align: right;
+  line-height: 60px; }
+
+.new-opinion__add-btn {
+  cursor: pointer;
+  text-align: center;
+  width: 87px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: #ff8663;
+  color: #fff;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  font-size: 12px;
+  font-weight: 300; }
+  .new-opinion__add-btn:hover {
+    -webkit-filter: brightness(80%);
+    filter: brightness(80%); }
