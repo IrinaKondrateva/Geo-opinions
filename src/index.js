@@ -64,7 +64,7 @@ document.addEventListener('click', (e) => {
     for (let input of inputs) {
         if (!input.value) {
             alert('Введите данные отзыва');
-            
+
             return;
         } 
         opinion[input.name] = input.value;
@@ -89,6 +89,8 @@ document.addEventListener('click', (e) => {
     if (!e.target.closest('.ballon-address__link')) return;
 
     e.preventDefault();
+    if (document.querySelector('.opinions')) return;
+
     let addrfromDom = e.target.closest('.ballon-address__link').textContent
     let geoOpinsItem = geoOpins.find(item => item.address == addrfromDom);
 
@@ -113,6 +115,8 @@ function convertCoordsToPx(coords) {
 }
 
 function createGeoOpin(e) {
+    if (document.querySelector('.opinions')) return;
+
     let coords = e.get('coords');
 
     // coords = coords.map(item => item.toPrecision(7));
@@ -135,7 +139,18 @@ function createGeoOpin(e) {
 
 function renderGeoOpin(opinItem, { 0: left, 1: top }) {
     document.body.insertAdjacentHTML('afterBegin', opinionsTemplate(opinItem));
-    const opinionsElem = document.querySelector('.opinions__wrapper');
+    const opinionsElem = document.querySelector('.opinions');
+
+    let opinElemX = document.body.clientWidth - left,
+        opinElemY = document.body.clientHeight - top;
+
+    if (opinElemX < opinionsElem.offsetWidth) {
+        left -= opinionsElem.offsetWidth - opinElemX;
+    }
+
+    if (opinElemY < opinionsElem.offsetHeight) {
+        top -= opinionsElem.offsetHeight - opinElemY;
+    }
 
     opinionsElem.style.top = `${top}px`;
     opinionsElem.style.left = `${left}px`;
@@ -150,6 +165,7 @@ function createPlacemark(geoOpinsItem, opinion) {
     }, { preset: 'islands#redIcon', openBalloonOnClick: false });
     
     placemark.events.add('click', () => {
+        if (document.querySelector('.opinions')) return;
         renderGeoOpin(geoOpinsItem, convertCoordsToPx(geoOpinsItem.coord));
     });
 
