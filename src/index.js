@@ -42,6 +42,8 @@ new Promise(resolve => ymaps.ready(resolve))
         myMap.events.add('click', createGeoOpin);
 
         myMap.geoObjects.add(clusterer);
+
+        renderMarksFromLS();
     })
     .catch (e => console.error(`Ошибка: ${e.message}`));
 
@@ -71,6 +73,7 @@ document.addEventListener('click', (e) => {
         input.value = '';
     }
     geoOpinsItem.opinions.push(opinion);
+    localStorage.setItem('geoOpins', JSON.stringify(geoOpins));
 
     document.querySelector('.opinions').remove();
     renderGeoOpin(geoOpinsItem, convertCoordsToPx(geoOpinsItem.coord));
@@ -171,4 +174,19 @@ function createPlacemark(geoOpinsItem, opinion) {
 
     myMap.geoObjects.add(placemark);
     clusterer.add(placemark); 
+}
+
+function renderMarksFromLS() {
+    if (localStorage.geoOpins) {
+        try {
+            geoOpins = JSON.parse(localStorage.geoOpins);
+            for (const geoOpinsItem of geoOpins) {
+                for (const opinion of geoOpinsItem.opinions) {
+                    createPlacemark(geoOpinsItem, opinion);
+                }
+            }
+        } catch (e) {
+            console.error('Ошибка: ' + e.message);
+        }
+    }
 }
